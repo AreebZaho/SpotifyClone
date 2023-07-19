@@ -208,11 +208,11 @@ body {
 .card-play {
     background-size: cover;
     border-radius: 50%;
-    height: 2.7rem;
-    width: 2.7rem;
+    height: 35%;
+    width: 35%;
     position: relative;
-    top: 5.8em;
-    left: 5.4em;
+    top: 60%;
+    left: 60%;
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
@@ -247,6 +247,44 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.album, .player {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    background-color: black;
+}
+.album {
+    justify-content: start;
+    padding: 0 0.5rem;
+}
+.album > div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+}
+.album-cover img {
+    height: 3.5rem;
+    border-radius: 0.25rem;   
+}
+.album-name .song {
+    font-size: 0.87rem;
+    font-weight: 500;
+}
+.album-name .artist {
+    font-size: 0.7rem;
+    color: #b3b3b3;
+}
+.album-name a:hover {
+    color: white;
+    text-decoration: underline;
+}
+.album-icon {
+    opacity: 0.7;
+}
+.album-icon:hover {
+    opacity: 1;
+}
+
 .control {
     width: 50%;
 }
@@ -277,8 +315,14 @@ body {
     font-size: 0.7rem;
     color: #b3b3b3;
 }
+.playback {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 .progress-bar {
-    width: 70%;
+    width: 90%;
     margin: 0 0.5rem;
     cursor: pointer;  
     appearance: none;
@@ -293,43 +337,19 @@ body {
     appearance: none;
     height: 0.75rem;
     width: 0.75rem;
-    background-color: #1bd760;
+    background-color: white;
     border-radius: 50%;
-    margin-top: -0.3rem;
+    margin-top: -0.2rem;
     opacity: 0;
 }
-.progress-bar::-webkit-slider-thumb:hover {
+.playback:hover {/*applied on div who has bg color mentioned above, not on input*/
     .progress-bar::-webkit-slider-thumb {
         opacity: 1;
     }
-}
-
-.album, .player {
-    display: flex;
-    align-items: center;
-    width: 25%;
-    background-color: black;
-}
-.album {
-    justify-content: start;
-    padding: 0 0.5rem;
-}
-.album-cont {
-    display: flex;
-    flex-direction: column;
-    margin: 0 0.5rem;
-}
-.album-cont .name {
-    margin-bottom: 0.25rem;
-    font-size: 0.87rem;
-    font-weight: 500;
-}
-.album-cont .artist {
-    font-size: 0.7rem;
-    color: #b3b3b3;
-}
-.album-cont a:hover {
-    text-decoration: underline;
+    .progress-bar::-webkit-slider-runnable-track {
+        height: 0.3rem;
+        background-color: white;
+    }
 }
 
 .player {
@@ -347,6 +367,7 @@ body {
     opacity: 1;
 }
 .player-vol {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,7 +376,7 @@ body {
     margin: 0 0.5rem 0 0;
     background: transparent;
     appearance: none;
-    width: 30%;
+    width: 90%;
     cursor: pointer;
 }
 .vol-bar::-webkit-slider-runnable-track {
@@ -368,15 +389,24 @@ body {
     height: 0.75rem;
     width: 0.75rem;
     background-color: white;
-    border-radius: 100%;
-    margin-top: -0.25rem;
+    border-radius: 50%;
+    margin-top: -0.2rem;
+    opacity: 0;
+}
+.player-vol:hover {
+    .vol-bar::-webkit-slider-thumb {
+        opacity: 1;
+    }
+    .vol-bar::-webkit-slider-runnable-track {
+        height: 0.3rem;
+        background-color: white;
+    }
 }
 
 a {
     text-decoration: none;
     color: white;
 }
-
 @media (max-width: 1000px) {
     .hide {
         display: none;
@@ -386,12 +416,12 @@ a {
     .hide1 {
         display: none;
     }
-    .vol-bar {
-        flex-grow: 1;
+    .player img {
+        margin: 0 0.1rem;
     }
 }
 @media (max-width: 960px) {
-    .hide4 {
+    .album .album-icon {
         display: none;
     }
     .album-cont .name {
@@ -416,11 +446,6 @@ a {
     .album {
         flex-direction: column;
     }
-    .album img {
-        margin: 0.5rem 0;
-        height: 3rem;
-        width: 3rem;
-    }
     .sidebar {
         width: 300px;
     }
@@ -442,7 +467,7 @@ a {
 }
 @media (max-width: 640px) {
     .sidebar {
-        display: none
+        display: none;
     }
     .card {
         height: 25%;
@@ -451,15 +476,31 @@ a {
 }
 @media (max-width: 560px) {
     .sidebar {
-        display: none
+        display: none;
     }
     .card {
         width: 40%;
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 510px) {
+    .album-cover img {
+        height: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .album .album-name .song {
+        font-size: 0.7rem;
+    }
     .hide5 {
         display: none;
+    }
+}
+@media (max-width: 460px) {
+    .album-cover img {
+        height: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .album .album-name .song {
+        font-size: 0.6rem;
     }
 }
 @media (max-width: 420px) {
